@@ -1,0 +1,110 @@
+<div class="content">
+<mat-card>
+  <mat-card-content>
+    <button mat-raised-button class="btn-Agregar-cliente" color="primary" (click)="OpenDialogagregarAdeudo()">Agregar
+      Nuevo Adeudo 
+      <img src="../../../../assets/colateral.png" class="icon-img" alt=""></button>
+  </mat-card-content>
+</mat-card>
+<br>
+<mat-card >
+  <mat-card-content class="group-btn">
+
+    <button mat-raised-button class="btn-get-adeudos" (click)="getAllAdeudos()">Mostrar Todos
+      <img src="../../../../assets/factura.png" class="icon-img" alt=""></button>
+    <button mat-raised-button class="btn-adeudos-pagados" (click)="getAllAdeudosPagados()">Mostrar Pagados
+      <img src="../../../../assets/pedir-prestado.png" class="icon-img" alt=""></button>
+    <button mat-raised-button class="btn-adeudos-nopagados" (click)="getAllAdeudosNoPagados()">Mostrar No Pagados
+      <img src="../../../../assets/dinero.png" class="icon-img" alt=""></button>
+
+  </mat-card-content>
+</mat-card>
+<br>
+<mat-card class="content-estadisticas">
+  <mat-card class="estadisticas">
+  <div class="titulo-estadisticas">
+      <img src="../../../../assets/doument.png" class="icon-img-dos" alt="">
+      <h3>Total de Adeudos de los clientes:</h3> 
+  </div>
+
+  <div>
+      <p class="pesos"><strong>${{ totalImportePorPagar }}</strong></p>
+  </div>
+</mat-card>
+<mat-card class="estadisticas">
+ <div class="titulo-estadisticas">
+   <img src="../../../../assets/que-lleva.png" class="icon-img-dos" alt="">
+   <h3>Total de Ingresos a la tienda:</h3> 
+ </div>
+ <div>
+   <p class="pesos"> <strong>${{ totalImporteCobrado }}</strong></p>
+ </div>
+</mat-card>
+  
+</mat-card>
+<table mat-table [dataSource]="adeudo" class="tabla mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Folio de Adeudo </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="idCliente">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.clienteNombre}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fechaVencimiento">
+    <th mat-header-cell *matHeaderCellDef> Fecha de Vencimiento </th>
+    <td mat-cell *matCellDef="let element"> {{element.fechaVencimiento | date:'dd/MMM/yyyy'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="descripcion">
+    <th mat-header-cell *matHeaderCellDef> Descripción </th>
+    <td mat-cell *matCellDef="let element"> {{element.descripcion | date:'dd/MMM/yyyy'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="importe">
+    <th mat-header-cell *matHeaderCellDef> Importe </th>
+    <td mat-cell *matCellDef="let element"> ${{element.importe}} </td>
+  </ng-container>
+  <ng-container matColumnDef="idCobros">
+    <th mat-header-cell *matHeaderCellDef> Folio de Cobro </th>
+    <td mat-cell *matCellDef="let element" [ngClass]="{'texto-rojo': !element.idCobros}">
+      {{element.idCobros ? element.idCobros : 'por pagar'}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="importeCobrado">
+    <th mat-header-cell *matHeaderCellDef> Importe Cobrado </th>
+    <td mat-cell *matCellDef="let element" [ngClass]="{'texto-rojo': !element.importeCobrado}">
+     ${{element.importeCobrado ? element.importeCobrado : 'por pagar'}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="fechaCobro">
+    <th mat-header-cell *matHeaderCellDef> Fecha de Cobro </th>
+    <td mat-cell *matCellDef="let element" [ngClass]="{'texto-rojo': !element.fechaCobro}">
+      {{ element.fechaCobro ? (element.fechaCobro | date:'dd/MMM/yyyy') : 'por pagar' }}
+    </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="saldo">
+    <th mat-header-cell *matHeaderCellDef> Saldo </th>
+    <td mat-cell *matCellDef="let element"       [ngClass]="{'texto-rojo': element.saldo === null || element.saldo, 'texto-verde': element.saldo !== null && !element.saldo}">
+     {{ element.saldo !== 0 ? 'por pagar' : '$'+element.saldo}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element"
+      [ngClass]="{'texto-rojo': element.status === null || element.status, 'texto-verde': element.status !== null && !element.status}">
+      {{ element.status === null ? 'Por Pagar' : (element.status ? 'Por Pagar' : 'PAGADO') }}
+    </td>
+  </ng-container>
+  <!-- Continúa con las demás columnas según el modelo -->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>

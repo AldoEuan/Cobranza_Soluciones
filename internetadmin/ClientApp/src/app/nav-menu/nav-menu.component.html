@@ -1,0 +1,85 @@
+<header>
+<<<<<<< HEAD
+  <mat-toolbar  >
+    <button mat-icon-button class="btn-menu" (click)="toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a mat-button class="btn-inicio" routerLink="/">
+      <mat-icon>home</mat-icon> InterAdmin
+    </a>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav class="sidenav" fixedInViewport="true" [attr.role]="(isExpanded ? 'dialog' : 'navigation')"
+      [mode]="(isExpanded ? 'over' : 'side')" [opened]="isExpanded">
+      <mat-nav-list>
+        <a class="items"  routerLink="/tickets" [routerLinkActive]="['link-active']">
+          <mat-icon>receipt</mat-icon>Tickets
+        </a>
+        <a class="items"   routerLink="/cobros" [routerLinkActive]="['link-active']">
+          <mat-icon>monetization_on</mat-icon>Registro de Cobros
+        </a>
+        <a class="items"   routerLink="/adeudos" [routerLinkActive]="['link-active']">
+          <mat-icon>description</mat-icon>Registro de Adeudos
+        </a>
+        <a class="items"   routerLink="/clientes" [routerLinkActive]="['link-active']">
+          <mat-icon>supervisor_account</mat-icon>Clientes
+        </a>
+        <a class="items"   routerLink="/planes" [routerLinkActive]="['link-active']">
+          <mat-icon>dns</mat-icon>Planes
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <!-- Contenido principal de la página -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+</header>
+=======
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">internetadmin</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/counter']"
+              >Counter</a
+            >
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
+              >Fetch data</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+>>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)

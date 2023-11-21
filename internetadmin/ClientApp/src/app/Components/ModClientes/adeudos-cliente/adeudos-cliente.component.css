@@ -1,0 +1,26 @@
+.texto-rojo {
+    font-family: 'Poppins', sans-serif;
+    color: red;
+  }
+  
+  .texto-verde {
+    font-family: 'Poppins', sans-serif;
+    color: #0d6efd ;
+  }
+  
+.content-persona{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0d6efd;
+    color: white;
+  }
+
+th{
+    font-family: 'Poppins', sans-serif;
+}
+td{
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,0 +1,79 @@
+<mat-card>
+    <mat-card-header class="header">
+        <mat-icon>wifi</mat-icon>
+        <h2>"Servicios y Soluciones en Informatica del Suereste"</h2>
+    </mat-card-header>
+
+    <div class="cont-info">
+        <mat-card-content>
+            <p><strong>Folio de Cobro:</strong> {{ ticket.idCobros }}</p>
+            <P>Calle 22 No.96A Colonia Centro</P>
+            <p>Calkiní, Campeche C.P.24900</p>
+            <p>Tel. 996-961-01-30</p>
+            <p><strong>Lunes a Sabado 9 a 15 hrs. y 17 a 19:30 hrs.</strong></p>
+            <p><strong>Domingo de 10 a 14 hrs.</strong></p>
+            <hr> 
+
+            <div class="content-infocliente">
+                <p><strong>Nota de Venta:</strong>  {{ ticket.idAdeudo }}</p>
+                
+            </div>
+
+            <p>
+                <strong>Cliente:</strong> {{ ticket.nombreCliente}}
+            </p> 
+
+            <div class="content-infocliente">
+                <div class="content-telefono">
+                    <p><strong>Tel.Cliente:</strong></p>
+                    <p> {{ ticket.telefonoCliente}} </p>
+                    
+                </div>
+                <div class="content-plan">
+                    <p><strong>Plan:</strong></p>
+                    <p> {{ ticket.nombreplan}}</p>
+                </div>
+            </div>
+
+
+          <div class="content-infocliente">
+              <div class="content-Fvencimiento">
+                  <p><strong>Fecha de Vencimiento:</strong></p>
+                  <p>{{ ticket.fechaVencimiento | date:'dd/MMM/yyyy' }}</p>
+              </div>
+            
+             <div class="content-localidad">
+               <p><strong>Localidad:</strong></p>
+               <p>{{ ticket.localidad }}</p>
+             </div>
+          </div>
+            <hr>
+            <div class="content-concepto">
+                <div class="content-descripcion">
+                    <p> <strong>Descripción del Pago:</strong> </p>
+                    <p>{{ ticket.descripcion | date:'dd/MMM/yyyy' }}</p>
+
+                </div>
+                <br>
+
+                <div class="content total">
+                    <p><strong>Total:</strong></p>
+                    <p> ${{ ticket.total }}</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="content-fecha-impresion">
+                <p> <strong>Fecha de Impresión:</strong>
+                </p>
+                <p> {{ ticket.fecha | date:'dd/MMM/yyyy HH:mm:ss' }}
+                </p>
+            </div>
+
+            <hr>
+
+        </mat-card-content>
+
+    </div>
+</mat-card>

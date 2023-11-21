@@ -1,0 +1,84 @@
+<div class="content-persona">
+  <h2>Registrar Cliente</h2>
+</div>
+<form [formGroup]="clienteForm" (ngSubmit)="registrarCliente()">
+ 
+
+  <div class="contenedorform">
+
+    <div class="columna">
+
+      <label>
+        <p>Nombre:</p>
+      </label>
+      <input matInput formControlName="nombre" placeholder="Nombre" class="mi-input">
+
+      <br>
+      <label>
+        <p>Telefono:</p>
+      </label>
+      <input matInput formControlName="telefono" placeholder="Teléfono" class="mi-input">
+      <br>
+      <label>
+        <p>Correo:</p>
+      </label>
+      <input matInput formControlName="correo" placeholder="Correo" class="mi-input">
+      <br>
+
+
+      <label>
+        <p>Dirección:</p>
+      </label>
+      <input matInput formControlName="direccion" placeholder="Dirección" class="mi-input">
+      <br>
+
+
+      <label>
+        <p>Colonia:</p>
+      </label>
+      <input matInput formControlName="colonia" placeholder="Colonia" class="mi-input">
+      <br>
+    </div>
+
+
+    <div class="columna">
+
+      <label>
+        <p>Localidad:</p>
+      </label>
+      <mat-select formControlName="localidad" placeholder="localidad">
+        <mat-option *ngFor="let localidad of localidades" [value]="localidad">{{ localidad }}</mat-option>
+      </mat-select>
+      <br>
+      <label>
+        <p>Referencia:</p>
+      </label>
+      <input matInput formControlName="referencia" placeholder="Referencia" class="mi-input">
+
+      <br>
+      <label>
+        <p>SSID:</p>
+      </label>
+      <input matInput formControlName="ssid" placeholder="SSID" class="mi-input">
+      <br>
+      <label>
+        <p>IP:</p>
+      </label>
+      <input matInput formControlName="ip" placeholder="IP" class="mi-input">
+      <br>
+      <label>
+        <p>Plan:</p>
+      </label>
+      <mat-select formControlName="idPlan" placeholder="ID de Plan">
+        <mat-option *ngFor="let plan of planes" [value]="plan.id">{{ plan.nombre }}</mat-option>
+      </mat-select>
+      <br>
+
+
+      <mat-checkbox formControlName="estado">Activo</mat-checkbox>
+      <br>
+      </div>
+    </div>
+  <button mat-raised-button color="primary" type="submit">Registrar</button>
+
+</form>

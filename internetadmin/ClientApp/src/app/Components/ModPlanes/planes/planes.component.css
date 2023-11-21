@@ -1,0 +1,22 @@
+.content{
+    padding: 25px;
+    
+}
+.btn-editar{
+  background-color: #0d6efd ;
+  color: white;
+}
+.Agregar-cliente{
+  font-family: 'Poppins', sans-serif;
+  background-color: #0d6efd ;
+  color: white;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 5px ;
+}
+th{
+  font-family: 'Poppins', sans-serif;
+}
+td{
+  font-family: 'Poppins', sans-serif;
+}

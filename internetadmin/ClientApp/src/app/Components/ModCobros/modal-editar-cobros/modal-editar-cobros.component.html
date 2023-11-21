@@ -1,0 +1,93 @@
+<div class="content-persona">
+  <h2>Registrar Pago</h2>
+</div>
+<form [formGroup]="cobroForm" (ngSubmit)="editarCobro()">
+
+
+  <div class="contenedorform">
+
+    <div class="columna">
+      <div class="content-adeudo">
+        <div class="content-persona">
+
+          <h3>Informacion del Adeudo del Cliente</h3>
+        </div>
+        <div class="content-info">
+
+
+          <label>
+            <p>Folio de Cliente:</p>
+          </label>
+          <input matInput formControlName="cliente" placeholder="Precio" class="mi-input-adeudo" readonly>
+          <br>
+
+          <label>
+            <p>Cliente:</p>
+          </label>
+          <input matInput formControlName="nombreCliente" placeholder="cliente" class="mi-input-adeudo" readonly>
+          <br>
+
+          <label>
+            <p>Folio de Adeudo:</p>
+          </label>
+          <input matInput formControlName="idAdeudo" placeholder="Precio" class="mi-input-adeudo" readonly>
+          <br>
+
+          <label>
+            <p>Mes por Pagar:</p>
+          </label>
+          <input matInput formControlName="descripcionPago" placeholder="Precio" class="mi-input-adeudo" readonly>
+          <br>
+
+          <label>
+            <p>Importe:</p>
+          </label>
+          <input matInput formControlName="importeAdeudo" placeholder="Precio" class="mi-input-adeudo" readonly>
+          <br>
+        </div>
+      </div>
+
+      <div class="content-pago">
+        <div class="content-persona">
+          <h3>Informacion de Pago del Cliente</h3>
+        </div>
+        <div class="content-info">
+          <label>
+            <p>Fecha de Pago</p>
+          </label>
+          <mat-form-field>
+            <mat-label>Fecha de Pago</mat-label>
+            <input matInput [matDatepicker]="pickerDesc" formControlName="fechaPago" readonly>
+            <mat-datepicker-toggle matSuffix [for]="pickerDesc"></mat-datepicker-toggle>
+            <mat-datepicker #pickerDesc></mat-datepicker>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+          </mat-form-field>
+          <br>
+          <label>
+            <p>Total a Pagar por el Cliente:</p>
+          </label>
+          <input matInput formControlName="total" placeholder="Precio" class="mi-input">
+          <br>
+
+          <br>
+
+          <label>
+            <p>Localidad:</p>
+          </label>
+          <mat-select formControlName="localidad" placeholder="localidad">
+            <mat-option *ngFor="let localidad of localidades" [value]="localidad">{{ localidad }}</mat-option>
+          </mat-select>
+          <br>
+          <label>
+            <p>Observaciones:</p>
+          </label>
+          <textarea matInput formControlName="observaciones" placeholder="Observaciones"
+            class="mi-input-area"></textarea>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button color="primary" type="submit">Cobrar</button>
+
+</form>

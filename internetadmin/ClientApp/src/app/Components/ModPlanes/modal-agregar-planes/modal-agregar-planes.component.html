@@ -1,0 +1,27 @@
+<div class="content-titulo">
+  <h2>Registrar Plan de Internet</h2>
+</div> 
+<form [formGroup]="planForm" (ngSubmit)="registrarPlan()">
+
+  
+    <div class="contenedorform">
+  
+      <div class="columna">
+  
+        <label>
+          <p>Nombre:</p>
+        </label>
+        <input matInput formControlName="nombre" placeholder="Nombre" class="mi-input">
+  
+        <br>
+        <label>
+          <p>Precio:</p>
+        </label>
+        <input matInput formControlName="costoRenta" placeholder="Precio" class="mi-input">
+        <br>
+      </div>
+   
+      </div>
+    <button mat-raised-button class="btn-reg" type="submit">Registrar</button>
+  
+  </form>

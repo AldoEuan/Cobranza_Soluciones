@@ -1,0 +1,54 @@
+<div class="content-persona">
+    <mat-icon>person</mat-icon><h1>{{cliente.nombre}}</h1>
+</div>
+<mat-card>
+   
+    <div class="cont-info">
+        <mat-card-content class="content-data">
+            <p> <mat-icon>phone</mat-icon><strong>Teléfono:</strong> {{ cliente.telefono }}
+            </p>
+            <br>
+            <p>
+                <mat-icon>mail</mat-icon> <strong>Correo:</strong> {{ cliente.correo }}
+            </p>
+            <br>
+            <p>
+                <mat-icon>location_on</mat-icon> <strong>Dirección:</strong> {{ cliente.direccion }}
+            </p>
+            <br>
+            <p>
+                <mat-icon>location_city</mat-icon> <strong>Colonia:</strong> {{ cliente.colonia }}
+            </p>
+            <br>
+            <p>
+                <mat-icon>location_city</mat-icon> <strong>Localidad:</strong> {{ cliente.localidad }}
+            </p>
+     
+
+
+        </mat-card-content>
+        <mat-card-footer class="content-data">
+            <br>
+            <p>
+                <mat-icon>location_on</mat-icon> <strong>Referencia:</strong> {{ cliente.referencia }}
+            </p>
+            <br>
+            <p>
+                <mat-icon>wifi</mat-icon> <strong>SSID:</strong> {{ cliente.ssid }}
+            </p>
+            <br>
+            <p>
+                <mat-icon>language</mat-icon> <strong>IP:</strong> {{ cliente.ip }}
+            </p>
+            <br>
+            <p>
+                <mat-icon>check_circle</mat-icon> <strong>Estado:</strong> {{ cliente.estado ? 'Activo' : 'Inactivo' }}
+            </p>
+            <br>
+            <p>
+                <mat-icon>list</mat-icon> <strong>ID de Plan:</strong> {{ cliente.idPlan }}
+            </p>
+            <br>
+        </mat-card-footer>
+    </div>
+</mat-card>

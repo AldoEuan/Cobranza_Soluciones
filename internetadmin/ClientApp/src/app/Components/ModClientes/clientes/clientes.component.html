@@ -1,0 +1,46 @@
+<div class="content">
+<button mat-raised-button   class="Agregar-cliente" (click)="OpenDialogagregarCliente()">Agregar Cliente <mat-icon>person</mat-icon></button>
+<table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Asegúrate de que los nombres de las columnas coincidan con las propiedades del modelo -->
+    <!-- Por ejemplo, si el modelo tiene una propiedad 'nombre', entonces usa 'nombre' como nombre de columna -->
+
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+        <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="localidad">
+        <th mat-header-cell *matHeaderCellDef> Localidad </th>
+        <td mat-cell *matCellDef="let element"> {{element.localidad}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="deudas">
+        <th mat-header-cell *matHeaderCellDef>Adeudos de Cliente </th>
+        <td mat-cell *matCellDef="let element"> <button mat-mini-fab  class="btn" (click)="OpenDialogDeudasCliente(element.id,element.nombre)"> <mat-icon>folder</mat-icon> </button> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Informacion de Cliente</th>
+        <td mat-cell *matCellDef="let element"> <button mat-mini-fab class="btn" (click)="OpenDialogverCliente(element.id)"> <mat-icon>info</mat-icon> </button> </td>
+    </ng-container>
+    <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef>Modificar Cliente</th>
+        <td mat-cell *matCellDef="let element"> <button mat-mini-fab class="btn" (click)="OpenDialogEditarCliente(element.id)"> <mat-icon>edit</mat-icon> </button> </td>
+    </ng-container>
+
+    <!-- Continúa con las demás columnas según el modelo -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
