@@ -1,0 +1,8 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "",
+"LaunchCommand": "",
+"WorkingDirectory": "C:\\Users\\jess\\source\\repos\\Cobranza_Soluciones\\InternetAdmin.model",
+"MaxTimeoutInSeconds": "120"
+}
+}

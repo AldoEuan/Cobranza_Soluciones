@@ -30,7 +30,7 @@ namespace internetadmin.Controllers
             }
         }
         [HttpGet("porPlan/{idPlan}")]
-        public IActionResult ObtenerClientesPorPlan(string idPlan)
+        public IActionResult ObtenerClientesPorPlan(int idPlan)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace internetadmin.Controllers
             }
         }
             [HttpGet("{id}")]
-        public IActionResult ObtenerClientePorId(string id)
+        public IActionResult ObtenerClientePorId(int id)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult ActualizarCliente(string id, [FromBody] Cliente cliente)
+        public IActionResult ActualizarCliente(int id, [FromBody] Cliente cliente)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace internetadmin.Controllers
 
 
         [HttpDelete("{id}")]
-        public IActionResult EliminarCliente(string id)
+        public IActionResult EliminarCliente(int id)
         {
             try
             {

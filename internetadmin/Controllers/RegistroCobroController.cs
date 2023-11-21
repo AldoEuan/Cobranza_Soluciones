@@ -30,7 +30,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult obtenerCobro(string id)
+        public IActionResult obtenerCobro(int id)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult actualizarCliente(string id, [FromBody] RegistroCobro cobro)
+        public IActionResult actualizarCliente(int id, [FromBody] RegistroCobro cobro)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult EliminarDeuda(string id)
+        public IActionResult EliminarDeuda(int id)
         {
             try
             {

@@ -21,7 +21,7 @@ namespace InternetAdmin.services
             return _dbContext.Plans.ToList();
         }
 
-        public Plan ObtenerPlan(string id)
+        public Plan ObtenerPlan(int id)
         {
 
             using (var newcontext = new CobranzaSolucionesContext())
@@ -44,7 +44,7 @@ namespace InternetAdmin.services
 
             }
         }
-        public void Eliminarplan(string id)
+        public void Eliminarplan(int id)
         {
             using (var newContext = new CobranzaSolucionesContext())
             {

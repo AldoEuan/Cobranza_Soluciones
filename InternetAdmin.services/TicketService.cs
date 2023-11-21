@@ -25,7 +25,7 @@ namespace InternetAdmin.services
             return _dbContext.Tickets.ToList();
         }
 
-        public Ticket ObtenerTicket(string id)
+        public Ticket ObtenerTicket(int id)
         {
 
             using (var newcontext = new CobranzaSolucionesContext())
@@ -48,7 +48,7 @@ namespace InternetAdmin.services
 
             }
         }
-        public void EliminarTicket(string id)
+        public void EliminarTicket(int id)
         {
             using (var newContext = new CobranzaSolucionesContext())
             {

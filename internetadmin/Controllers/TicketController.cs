@@ -1,4 +1,5 @@
-﻿using InternetAdmin.model;
+﻿
+using InternetAdmin.model;
 using InternetAdmin.services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +31,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult obtenerTicket(string id)
+        public IActionResult obtenerTicket(int id)
         {
             try
             {
@@ -57,7 +58,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult actualizarTicket(string id, [FromBody] Ticket ticket)
+        public IActionResult actualizarTicket(int id, [FromBody] Ticket ticket)
         {
             try
             {
@@ -74,7 +75,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult EliminarDeuda(string id)
+        public IActionResult EliminarDeuda(int id)
         {
             try
             {

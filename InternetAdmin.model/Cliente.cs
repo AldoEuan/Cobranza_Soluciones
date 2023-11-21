@@ -5,7 +5,7 @@ namespace InternetAdmin.model;
 
 public partial class Cliente
 {
-    public string Id { get; set; } = null!;
+    public int Id { get; set; }
 
     public string? Nombre { get; set; }
 
@@ -27,7 +27,7 @@ public partial class Cliente
 
     public bool? Estado { get; set; }
 
-    public string? IdPlan { get; set; }
+    public int? IdPlan { get; set; }
 
     public virtual Plan? IdPlanNavigation { get; set; }
 

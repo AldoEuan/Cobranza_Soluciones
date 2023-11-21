@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 using InternetAdmin.model;
+using Microsoft.EntityFrameworkCore;
+
 namespace InternetAdmin.dal;
 
 public partial class CobranzaSolucionesContext : DbContext
@@ -33,13 +34,13 @@ public partial class CobranzaSolucionesContext : DbContext
     {
         modelBuilder.Entity<Cliente>(entity =>
         {
+            entity.HasKey(e => e.Id).HasName("PK__Cliente__3214EC075B5A140F");
+
             entity.ToTable("Cliente");
 
-            entity.Property(e => e.Id).HasMaxLength(250);
             entity.Property(e => e.Colonia).HasMaxLength(150);
             entity.Property(e => e.Correo).HasMaxLength(150);
             entity.Property(e => e.Direccion).HasMaxLength(255);
-            entity.Property(e => e.IdPlan).HasMaxLength(250);
             entity.Property(e => e.Ip).HasMaxLength(50);
             entity.Property(e => e.Localidad).HasMaxLength(150);
             entity.Property(e => e.Nombre).HasMaxLength(255);
@@ -56,22 +57,22 @@ public partial class CobranzaSolucionesContext : DbContext
 
         modelBuilder.Entity<Plan>(entity =>
         {
+            entity.HasKey(e => e.Id).HasName("PK__Plan__3214EC071F93FD8E");
+
             entity.ToTable("Plan");
 
-            entity.Property(e => e.Id).HasMaxLength(250);
             entity.Property(e => e.Nombre).HasMaxLength(250);
         });
 
         modelBuilder.Entity<RegistroAdeudo>(entity =>
         {
-            entity.ToTable("RegistroAdeudo");
+            entity.HasKey(e => e.Id).HasName("PK__Registro__3214EC07B148BD47");
 
-            entity.Property(e => e.Id).HasMaxLength(250);
-            entity.Property(e => e.Descripcion).HasColumnType("datetime");
-            entity.Property(e => e.FechaCobro).HasColumnType("datetime");
-            entity.Property(e => e.FechaVencimiento).HasColumnType("datetime");
-            entity.Property(e => e.IdCliente).HasMaxLength(250);
-            entity.Property(e => e.IdCobros).HasMaxLength(250);
+            entity.ToTable("RegistroAdeudo", tb => tb.HasTrigger("tr_RegistroAdeudo_Insert"));
+
+            entity.Property(e => e.Descripcion).HasColumnType("date");
+            entity.Property(e => e.FechaCobro).HasColumnType("date");
+            entity.Property(e => e.FechaVencimiento).HasColumnType("date");
 
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.RegistroAdeudos)
                 .HasForeignKey(d => d.IdCliente)
@@ -84,8 +85,6 @@ public partial class CobranzaSolucionesContext : DbContext
 
         modelBuilder.Entity<RegistroCobro>(entity =>
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
             entity.HasKey(e => e.Id).HasName("PK__Registro__3213E83FE892E781");
 
             entity.ToTable(tb =>
@@ -97,20 +96,6 @@ public partial class CobranzaSolucionesContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.DescripcionPago).HasColumnType("date");
             entity.Property(e => e.FechaPago).HasColumnType("date");
-=======
-=======
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
-            entity.Property(e => e.Id)
-                .HasMaxLength(250)
-                .HasColumnName("id");
-            entity.Property(e => e.Cliente).HasMaxLength(250);
-            entity.Property(e => e.DescripcionPago).HasColumnType("datetime");
-            entity.Property(e => e.FechaPago).HasColumnType("datetime");
-            entity.Property(e => e.IdAdeudo).HasMaxLength(250);
-<<<<<<< HEAD
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
-=======
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
             entity.Property(e => e.Localidad).HasMaxLength(250);
             entity.Property(e => e.Observaciones).HasMaxLength(250);
 
@@ -125,12 +110,12 @@ public partial class CobranzaSolucionesContext : DbContext
 
         modelBuilder.Entity<Ticket>(entity =>
         {
+            entity.HasKey(e => e.Id).HasName("PK__Ticket__3214EC074AEDDB7E");
+
             entity.ToTable("Ticket");
 
-            entity.Property(e => e.Id).HasMaxLength(250);
+            entity.Property(e => e.Descripcion).HasColumnType("date");
             entity.Property(e => e.Fecha).HasColumnType("datetime");
-<<<<<<< HEAD
-<<<<<<< HEAD
             entity.Property(e => e.FechaVencimiento).HasColumnType("date");
             entity.Property(e => e.Localidad).HasMaxLength(250);
             entity.Property(e => e.NombreCliente).HasMaxLength(250);
@@ -138,14 +123,6 @@ public partial class CobranzaSolucionesContext : DbContext
             entity.HasOne(d => d.ClienteNavigation).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.Cliente)
                 .HasConstraintName("FK_Ticket_Cliente");
-=======
-            entity.Property(e => e.IdAdeudo).HasMaxLength(250);
-            entity.Property(e => e.IdCobros).HasMaxLength(250);
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
-=======
-            entity.Property(e => e.IdAdeudo).HasMaxLength(250);
-            entity.Property(e => e.IdCobros).HasMaxLength(250);
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
 
             entity.HasOne(d => d.IdAdeudoNavigation).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.IdAdeudo)

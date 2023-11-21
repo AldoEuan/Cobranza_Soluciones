@@ -17,6 +17,15 @@ builder.Services.AddScoped<RegistroCobroService>();
 builder.Services.AddScoped<TicketService>();
 builder.Services.AddScoped<CobranzaSolucionesContext>();
 
+builder.Services.AddCors(Options =>
+{
+    Options.AddPolicy("nuevapolitica", app =>
+    {
+        app.AllowAnyOrigin()
+       .AllowAnyHeader()
+       .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -33,7 +42,7 @@ else
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
+app.UseCors("nuevapolitica");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

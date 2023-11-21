@@ -29,7 +29,7 @@ namespace internetadmin.Controllers
 
         }
         [HttpGet("{id}")]
-        public IActionResult ObtenerPlan(string id) 
+        public IActionResult ObtenerPlan(int id) 
         {
             try
             {
@@ -61,7 +61,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult ActualizarPlan(string id, [FromBody] Plan plan) 
+        public IActionResult ActualizarPlan(int id, [FromBody] Plan plan) 
         {
             try
             {
@@ -80,7 +80,7 @@ namespace internetadmin.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public IActionResult EliminarPlan(string id)
+        public IActionResult EliminarPlan(int id)
         {
             try
             {

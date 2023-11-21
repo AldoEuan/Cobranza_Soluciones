@@ -87,7 +87,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult obtenerAdeudo(string id)
+        public IActionResult obtenerAdeudo(int id)
         {
             try
             {
@@ -114,7 +114,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult actualizarCliente(string id, [FromBody] RegistroAdeudo adeudo)
+        public IActionResult actualizarCliente(int id, [FromBody] RegistroAdeudo adeudo)
         {
             try
             {
@@ -131,7 +131,7 @@ namespace internetadmin.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult EliminarDeuda(string id) 
+        public IActionResult EliminarDeuda(int id) 
         {
             try
             {

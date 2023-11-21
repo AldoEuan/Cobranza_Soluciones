@@ -5,9 +5,9 @@ namespace InternetAdmin.model;
 
 public partial class RegistroAdeudo
 {
-    public string Id { get; set; } = null!;
+    public int Id { get; set; }
 
-    public string? IdCliente { get; set; }
+    public int? IdCliente { get; set; }
 
     public DateTime? FechaVencimiento { get; set; }
 
@@ -15,7 +15,7 @@ public partial class RegistroAdeudo
 
     public int? Importe { get; set; }
 
-    public string? IdCobros { get; set; }
+    public int? IdCobros { get; set; }
 
     public int? ImporteCobrado { get; set; }
 

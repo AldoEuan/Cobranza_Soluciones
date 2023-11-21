@@ -22,7 +22,7 @@ namespace InternetAdmin.services
             return _dbContext.RegistroAdeudos.ToList();
         }
 
-        public RegistroAdeudo ObtenerAdeudo(string id)
+        public RegistroAdeudo ObtenerAdeudo(int id)
         {
 
             using (var newcontext = new CobranzaSolucionesContext())
@@ -47,7 +47,7 @@ namespace InternetAdmin.services
 
             }
         }
-        public void EliminarAdeudo(string id)
+        public void EliminarAdeudo(int id)
         {
             using (var newContext = new CobranzaSolucionesContext())
             {

@@ -33,7 +33,7 @@ namespace InternetAdmin.services
 
         }
 
-        public RegistroCobro ObtenerCobro(string id)
+        public RegistroCobro ObtenerCobro(int id)
         {
             return _dbContext.RegistroCobros
                                         .Where(rc => rc.Id == id) // Cambiado a buscar por el Id del cobro
@@ -73,7 +73,7 @@ namespace InternetAdmin.services
 
             }
         }
-        public void EliminarCobro(string id)
+        public void EliminarCobro(int id)
         {
             using (var newContext = new CobranzaSolucionesContext())
             {

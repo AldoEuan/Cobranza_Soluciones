@@ -5,7 +5,7 @@ namespace InternetAdmin.model;
 
 public partial class Plan
 {
-    public string Id { get; set; } = null!;
+    public int Id { get; set; }
 
     public string? Nombre { get; set; }
 

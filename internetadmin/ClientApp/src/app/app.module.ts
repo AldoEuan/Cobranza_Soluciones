@@ -1,16 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+ 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialsModule } from './Shared/angular-materials.module';
 import { ClientesComponent } from './Components/ModClientes/clientes/clientes.component';
@@ -31,10 +30,6 @@ import { TicketsComponent } from './Components/ModTickets/tickets/tickets.compon
 import { ModalInfoTicketsComponent } from './Components/ModTickets/modal-info-tickets/modal-info-tickets.component';
 import { AdeudosClienteComponent } from './Components/ModClientes/adeudos-cliente/adeudos-cliente.component';
 import { CommonModule } from '@angular/common';
-=======
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
-=======
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
 
 @NgModule({
   declarations: [
@@ -42,10 +37,8 @@ import { CommonModule } from '@angular/common';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-<<<<<<< HEAD
-<<<<<<< HEAD
     FetchDataComponent,
-   ClientesComponent,
+    ClientesComponent,
     ModalInfoClienteComponent,
     ModalAgregarClienteComponent,
     ModalEditarClienteComponent,
@@ -62,23 +55,15 @@ import { CommonModule } from '@angular/common';
     TicketsComponent,
     ModalInfoTicketsComponent,
     AdeudosClienteComponent,
-=======
-    FetchDataComponent
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
-=======
-    FetchDataComponent
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-<<<<<<< HEAD
-<<<<<<< HEAD
     AngularMaterialsModule,
     ReactiveFormsModule,
- 
-   
+
+
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -87,18 +72,9 @@ import { CommonModule } from '@angular/common';
       { path: 'planes', component: PlanesComponent },
       { path: 'cobros', component: CobrosComponent },
       { path: 'tickets', component: TicketsComponent },
-=======
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
-=======
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
       { path: 'fetch-data', component: FetchDataComponent },
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

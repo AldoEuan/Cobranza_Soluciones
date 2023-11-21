@@ -23,8 +23,6 @@ namespace InternetAdmin.services
             return _dbContext.Clientes.ToList();
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         public List<Cliente> ObtenerClientesActivos()
         {
             return _dbContext.Clientes.Where(c => c.Estado == true).ToList();
@@ -37,20 +35,12 @@ namespace InternetAdmin.services
 
 
         public Cliente ObtenerCliente(int id) {
-=======
-        public Cliente ObtenerCliente(string id) {
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
-=======
-        public Cliente ObtenerCliente(string id) {
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
 
             using (var newcontext = new CobranzaSolucionesContext())
             {
                 return _dbContext.Clientes.FirstOrDefault(u => u.Id == id);
             }
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         public List<Cliente> FiltrarClientesPorNombre(string nombre)
         {
@@ -73,15 +63,9 @@ namespace InternetAdmin.services
                 .Where(c => c.Colonia.Contains(colonia) && c.Localidad.Contains(localidad))
                 .ToList();
         }
--
+
 
         public List<Cliente> ObtenerClientesPorPlan(int idPlan)
-=======
-        public List<Cliente> ObtenerClientesPorPlan(string idPlan)
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
-=======
-        public List<Cliente> ObtenerClientesPorPlan(string idPlan)
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
         {
             var clientesAsociados = _dbContext.Clientes.Where(c => c.IdPlan == idPlan).ToList();
             return clientesAsociados;
@@ -98,12 +82,12 @@ namespace InternetAdmin.services
                 var planAsociado = newcontext.Plans.FirstOrDefault(p => p.Id == cliente.IdPlan);
                 if (planAsociado != null)
                 {
-                    planAsociado.Clientes.Add(cliente);
+                   planAsociado.Clientes.Add(cliente);
                     newcontext.SaveChanges();
                 }
             }
         }
-        public void EliminarCliente(string id)
+        public void EliminarCliente(int id)
         {
             using (var newContext = new CobranzaSolucionesContext())
             {

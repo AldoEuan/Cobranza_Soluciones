@@ -5,11 +5,11 @@ namespace InternetAdmin.model;
 
 public partial class RegistroCobro
 {
-    public string Id { get; set; } = null!;
+    public int Id { get; set; }
 
-    public string? Cliente { get; set; }
+    public int? Cliente { get; set; }
 
-    public string? IdAdeudo { get; set; }
+    public int? IdAdeudo { get; set; }
 
     public DateTime? DescripcionPago { get; set; }
 
