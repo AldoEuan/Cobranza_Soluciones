@@ -1,6 +1,6 @@
+<h1>Modulo de Cobros</h1>
 <div class="content">
 <div class="overlay" *ngIf="isLoading"></div>
-
 <mat-progress-spinner *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
   <table mat-table [dataSource]="cobros" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
@@ -75,6 +75,6 @@
     <!-- Continúa con las demás columnas según el modelo -->
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row class="mat-row" *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>

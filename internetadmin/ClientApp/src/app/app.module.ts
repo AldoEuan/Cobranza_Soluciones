@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+import { LOCALE_ID } from '@angular/core';
 
  
 import { AppComponent } from './app.component';
@@ -30,7 +34,19 @@ import { TicketsComponent } from './Components/ModTickets/tickets/tickets.compon
 import { ModalInfoTicketsComponent } from './Components/ModTickets/modal-info-tickets/modal-info-tickets.component';
 import { AdeudosClienteComponent } from './Components/ModClientes/adeudos-cliente/adeudos-cliente.component';
 import { CommonModule } from '@angular/common';
+import { MAT_DATE_FORMATS, MatDateFormats } from '@angular/material/core';
 
+const MY_FORMATS: MatDateFormats = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'DD/MMM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +92,15 @@ import { CommonModule } from '@angular/common';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es' },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor() {
+    // Registra el local de español
+    registerLocaleData(localeEs, 'es');
+  }
+}

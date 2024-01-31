@@ -1,3 +1,5 @@
+
+ <h1>Modulo Para Impresion de Tickets</h1>
  <div class="content">
   <table mat-table [dataSource]="ticket" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
@@ -67,6 +69,6 @@
     <!-- Continúa con las demás columnas según el modelo -->
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row class="mat-row" *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
