@@ -35,6 +35,7 @@ import { ModalInfoTicketsComponent } from './Components/ModTickets/modal-info-ti
 import { AdeudosClienteComponent } from './Components/ModClientes/adeudos-cliente/adeudos-cliente.component';
 import { CommonModule } from '@angular/common';
 import { MAT_DATE_FORMATS, MatDateFormats } from '@angular/material/core';
+import { LoginComponent } from './Components/login/login.component';
 
 const MY_FORMATS: MatDateFormats = {
   parse: {
@@ -71,6 +72,7 @@ const MY_FORMATS: MatDateFormats = {
     TicketsComponent,
     ModalInfoTicketsComponent,
     AdeudosClienteComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -82,6 +84,7 @@ const MY_FORMATS: MatDateFormats = {
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'clientes', component: ClientesComponent },
       { path: 'adeudos', component: AdeudosComponent },
