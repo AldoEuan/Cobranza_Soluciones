@@ -53,6 +53,10 @@ mat-select {
   padding: 5px;
   border-radius: 4px;
   margin-bottom: 10px;
+  color: #0d6efd;
+}
+span{
+  color: #0d6efd;
 }
 .mi-input-area{
   width: 100%;
@@ -97,7 +101,9 @@ button {
   color: white;
 }
 .content-info{
+  
   display: flex;
   flex-direction: column;
   padding: 15px;
 }
+ 

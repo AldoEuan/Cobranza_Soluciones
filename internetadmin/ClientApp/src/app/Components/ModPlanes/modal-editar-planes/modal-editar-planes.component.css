@@ -10,6 +10,12 @@ form{
      display: flex;
    justify-content: space-between; 
   }
+  .content-btn{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
   .columna {
     flex: 1; /* Cada columna ocupa el mismo espacio */
     padding: 0 10px;
@@ -52,7 +58,7 @@ form{
   }
   
   .btn-reg {
-    margin-top: 10px;
+ 
     font-family: 'Poppins', sans-serif;
     background-color: #0d6efd;
     color: white;

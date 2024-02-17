@@ -16,11 +16,11 @@ namespace internetadmin.Controllers
             _registroCobroservice = registroCobroService;
         }
         [HttpGet]
-        public IActionResult obtenertodosCobros()
+        public IActionResult obtenertodosCobros(int pagina)
         {
             try
             {
-                var cobros = _registroCobroservice.ObtenerTodosCobros();
+                var cobros = _registroCobroservice.ObtenerTodosCobros(pagina);
                 return Ok(cobros);
             }
             catch (Exception ex)

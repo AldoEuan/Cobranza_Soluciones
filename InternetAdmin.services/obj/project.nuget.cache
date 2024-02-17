@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "y3JJaNsqnas9stw4mJthfG5ZUFtFMBtMZ8cATrKno1oH7C7IY4EbY9S07V8aGGbbU60g4sHHIESlCo9yZJf3rw==",
+  "dgSpecHash": "srn8qoUL0j23IPFds2IDSEFxbMDch/++JtLg+SyGjm0mQGrVR5wO2n8YvPHiwTAylSqickZknfyd12GOdm9nCw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jess\\source\\repos\\Cobranza_Soluciones\\InternetAdmin.services\\InternetAdmin.services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jess\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\jess\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\jess\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\jess\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.3\\microsoft.aspnetcore.authentication.jwtbearer.6.0.3.nupkg.sha512",
     "C:\\Users\\jess\\.nuget\\packages\\microsoft.aspnetcore.nodeservices\\3.1.32\\microsoft.aspnetcore.nodeservices.3.1.32.nupkg.sha512",
     "C:\\Users\\jess\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\7.0.12\\microsoft.aspnetcore.spaproxy.7.0.12.nupkg.sha512",
     "C:\\Users\\jess\\.nuget\\packages\\microsoft.aspnetcore.spaservices\\3.1.32\\microsoft.aspnetcore.spaservices.3.1.32.nupkg.sha512",

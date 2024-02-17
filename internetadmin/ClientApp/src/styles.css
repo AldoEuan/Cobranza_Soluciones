@@ -14,15 +14,7 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   }
-=======
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
-=======
->>>>>>> parent of 65afcfb (Frontend Funcional modulos de clientes y planes)
-
-html, body { height: 100%; }
+ 
+html, body { width: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

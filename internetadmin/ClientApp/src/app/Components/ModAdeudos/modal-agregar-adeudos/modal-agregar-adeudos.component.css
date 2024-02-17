@@ -1,4 +1,6 @@
+ 
 form{
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,9 +8,15 @@ form{
   padding: 15px;
   }
   .contenedorform{
-     
+    width: 500px;
      display: flex;
    justify-content: space-between; 
+  }
+  .content-btn{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
   }
   .columna {
  
@@ -17,6 +25,9 @@ form{
     padding-right: 5px;
     box-sizing: border-box; /* Incluye el padding en el ancho total */
     max-width: 100%; /* Cada columna no puede exceder el 50% del ancho total */
+  }
+  mat-form-field{
+    width: 100%;
   }
   mat-select{
     width: 100%;
@@ -51,11 +62,10 @@ form{
     display: flex;
     align-items: center;
   }
-  
-  button {
-    margin-top: 10px;
-    background-color: #0d6efd  !important;
+  .btn {
+    background-color: #0d6efd !important;
   }
+   
   .content-persona {
     width: 100%;
     display: flex;

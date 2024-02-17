@@ -10,40 +10,48 @@ import { AdeudosService } from 'src/app/Services/adeudos.service';
   styleUrls: ['./adeudos.component.css']
 })
 export class AdeudosComponent implements OnInit{
+  isLoading: boolean = false; 
   adeudo: AdeudoModel[] =[];
   displayedColumns: string[] = ['id', 'idCliente', 'fechaVencimiento', 'descripcion', 'importe', 'idCobros', 'importeCobrado', 'fechaCobro', 'saldo', 'status'];
   totalImportePorPagar: number = 0;
   totalImporteCobrado: number = 0;
-
+  urlapi='https://interadmin.azurewebsites.net/';
   constructor(public dialog:MatDialog,private adeudoservice:AdeudosService){
 
   }
   ngOnInit(): void {
      this.getAllAdeudos();
+     this.isLoading = false;
   }
   public getAllAdeudos(){
-    this.adeudoservice.getAllAdeudos('https://localhost:7125/api/registroadeudo/allClientes').subscribe(Response =>{
+    this.isLoading = true;
+    this.adeudoservice.getAllAdeudos(`${this.urlapi}api/registroadeudo/allClientes`).subscribe(Response =>{
       this.adeudo = Response;
       this.calculateTotalImporteporPagar();
       this.calculateTotalImporteCobrado(); 
       console.log(Response);
+      this.isLoading = false;
     });
   }
 
   public getAllAdeudosNoPagados(){
-    this.adeudoservice.getAllAdeudos('https://localhost:7125/api/registroadeudo/nopagados').subscribe(Response =>{
+    this.isLoading = true;
+    this.adeudoservice.getAllAdeudos(`${this.urlapi}api/registroadeudo/nopagados`).subscribe(Response =>{
       this.adeudo = Response;
       this.calculateTotalImporteporPagar();
       this.calculateTotalImporteCobrado(); 
       console.log(Response);
+      this.isLoading = false;
     });
   }
   public getAllAdeudosPagados(){
-    this.adeudoservice.getAllAdeudos('https://localhost:7125/api/registroadeudo/pagados').subscribe(Response =>{
+    this.isLoading = true;
+    this.adeudoservice.getAllAdeudos(`${this.urlapi}api/registroadeudo/pagados`).subscribe(Response =>{
       this.adeudo = Response;
       this.calculateTotalImporteporPagar();
       this.calculateTotalImporteCobrado(); 
       console.log(Response);
+      this.isLoading = false;
     });
   }
   public calculateTotalImporteporPagar() {

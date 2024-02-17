@@ -6,7 +6,13 @@ form {
   justify-content: center;
   padding: 15px;
 }
-
+.content-btn{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+ 
 .contenedorform {
 
   display: flex;
@@ -69,7 +75,7 @@ h1 {
 }
 
 .btn-reg {
-  margin-top: 10px;
+ 
   font-family: 'Poppins', sans-serif;
   background-color: #0d6efd;
   color: white;

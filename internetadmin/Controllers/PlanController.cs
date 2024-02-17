@@ -1,5 +1,6 @@
 ﻿using InternetAdmin.model;
 using InternetAdmin.services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace internetadmin.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+ 
     public class PlanController : ControllerBase
     {
         public readonly PlanService _planservice;

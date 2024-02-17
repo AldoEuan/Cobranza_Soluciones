@@ -19,10 +19,17 @@ namespace InternetAdmin.services
         {
             _dbContext = Cobranzacontext;
         }
-         
-        public List<Ticket> ObtenerTodosTickets()
+
+        public List<Ticket> ObtenerTodosTickets(int pagina)
         {
-            return _dbContext.Tickets.ToList();
+            int tamañoPagina = 10;
+            int skip = (pagina - 1) * tamañoPagina;
+            // Ordenar los tickets por Fecha de forma ascendente y luego aplicar paginación
+            return _dbContext.Tickets
+                .OrderBy(ticket => ticket.Id)
+                 .Skip(skip)
+                .Take(tamañoPagina)
+                .ToList();
         }
 
         public Ticket ObtenerTicket(int id)
@@ -60,8 +67,9 @@ namespace InternetAdmin.services
                 }
             }
         }
-        public List<Ticket> ObtenerTodosTicketsConNombresDeCliente()
+        public List<Ticket> ObtenerTodosTicketsConNombresDeCliente(int pagina)
         {
+            int tamanoPagina = 10;
             return _dbContext.Tickets
                 .Include(t => t.ClienteNavigation) // Asumiendo que la propiedad de navegación a Cliente se llama ClienteNavigation
                 .Select(t => new Ticket
@@ -76,6 +84,9 @@ namespace InternetAdmin.services
                     Descripcion = t.Descripcion,
                     Total = t.Total
                 })
+                .OrderByDescending(t => t.Id)
+                .Skip((pagina - 1) * tamanoPagina) // Aplicar paginación
+                .Take(tamanoPagina)
                 .ToList();
         }
         public Ticket ObtenerTicketPorId(int id)

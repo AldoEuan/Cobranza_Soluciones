@@ -17,11 +17,11 @@ namespace internetadmin.Controllers
             _ticketService = ticketService;
         }
         [HttpGet]
-        public IActionResult obtenertodosTickets()
+        public IActionResult obtenertodosTickets(int pagina)
         {
             try
             {
-                var tickets = _ticketService.ObtenerTodosTicketsConNombresDeCliente();
+                var tickets = _ticketService.ObtenerTodosTicketsConNombresDeCliente(pagina);
                 return Ok(tickets);
             }
             catch (Exception ex)

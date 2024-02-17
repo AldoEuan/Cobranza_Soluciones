@@ -10,12 +10,15 @@ import { ModalInfoTicketsComponent } from '../modal-info-tickets/modal-info-tick
   styleUrls: ['./tickets.component.css']
 })
 export class TicketsComponent implements OnInit {
+  isLoading: boolean = false; 
   ticket: TicketModel[] =[ ];
   displayedColumns: string[] = ['id', 'fecha', 'idAdeudo', 'idCobros', 'cliente', 'localidad', 'fechaVencimiento', 'descripcion', 'total', 'ver'];
- 
+  pagina=1;
+  urlapi='https://interadmin.azurewebsites.net/';
   constructor(private ticketService:TicketsService, public dialog:MatDialog){}
   ngOnInit(): void {
     this.getAllTickets();
+    this.isLoading = false;
   }
 
   public opendialogTicket(id:number){
@@ -25,7 +28,8 @@ export class TicketsComponent implements OnInit {
   }
 
   public getAllTickets(){
-    this.ticketService.getAllTickets('https://localhost:7125/api/ticket').subscribe(Response =>{
+    this.isLoading = true;
+    this.ticketService.getAllTickets(`${this.urlapi}api/ticket?pagina=${this.pagina}`).subscribe(Response =>{
       this.ticket = Response;
       console.log(Response);
       this.ticket.forEach(element => {
@@ -33,7 +37,22 @@ export class TicketsComponent implements OnInit {
           element.fecha = new Date(); // Asignamos una nueva fecha
         }
       });
+      this.isLoading = false;
+
       }
     )
+  }
+
+  public paginaprev(){
+    this.pagina--;
+    if(this.pagina==0){
+      this.pagina=1;
+      this.getAllTickets();
+    }
+    this.getAllTickets();
+  }
+  public paginanext(){
+    this.pagina++;
+    this.getAllTickets();
   }
 }

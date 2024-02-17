@@ -23,6 +23,7 @@ export class ModalInfoTicketsComponent implements OnInit {
     telefonoCliente:'',
     nombreplan:'',
   };
+  urlapi='https://interadmin.azurewebsites.net/';
   constructor(private ticketService:TicketsService, @Inject(MAT_DIALOG_DATA) public data: TicketModel){
     this.ticket.id =data.id
  
@@ -33,7 +34,7 @@ export class ModalInfoTicketsComponent implements OnInit {
   }
 
   getTicket(){
-    this.ticketService.getTicket(`https://localhost:7125/api/ticket/${this.ticket.id}`).subscribe(Response =>{
+    this.ticketService.getTicket(`${this.urlapi}api/ticket/${this.ticket.id}`).subscribe(Response =>{
       console.log(Response)
       this.ticket = Response;
     

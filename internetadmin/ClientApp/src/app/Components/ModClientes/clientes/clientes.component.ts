@@ -13,19 +13,22 @@ import { AdeudosClienteComponent } from '../adeudos-cliente/adeudos-cliente.comp
   styleUrls: ['./clientes.component.css']
 })
 export class ClientesComponent implements OnInit{
- 
+  isLoading: boolean = false; 
   clientes:ClienteModel[]=[];
   displayedColumns: string[] = ['id', 'nombre', 'telefono', 'localidad','acciones','deudas','editar' ];
- 
+  urlapi='https://interadmin.azurewebsites.net/';
  constructor(private ClientesService:ClientesService, public dialog: MatDialog){}
   ngOnInit(): void {
+    
     this.GetAllClientes();
   }
   public GetAllClientes(){
-    this.ClientesService.getAllClientes(`https://localhost:7125/api/cliente`).subscribe(Response =>{
-      
+    this.isLoading = true; 
+    this.ClientesService.getAllClientes(`${this.urlapi}api/cliente`).subscribe(Response =>{
        this.clientes = Response;
+       this.isLoading = false; 
     })
+  
   }
   public OpenDialogverCliente(id:number){
     const dialogRef = this.dialog.open(ModalInfoClienteComponent,{

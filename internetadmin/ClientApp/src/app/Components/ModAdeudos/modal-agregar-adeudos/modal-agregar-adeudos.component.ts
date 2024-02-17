@@ -1,6 +1,7 @@
 import { AdeudosService } from './../../../Services/adeudos.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AdeudoModel } from 'src/app/Models/Adeudo-Interface';
 import { ClienteModel } from 'src/app/Models/Cliente-interface';
 import { ClientesService } from 'src/app/Services/clientes.service';
@@ -22,10 +23,10 @@ export class ModalAgregarAdeudosComponent implements OnInit{
        
       status: true
     }];
-
+    urlapi='https://interadmin.azurewebsites.net/';
   adeudoFrom:FormGroup;
   clientes: ClienteModel[] = [];
-  constructor(private adeudoServices:AdeudosService,private clientesService:ClientesService,private fb: FormBuilder){
+  constructor(private adeudoServices:AdeudosService,private clientesService:ClientesService,private fb: FormBuilder,public dialogRef:MatDialogRef<ModalAgregarAdeudosComponent>){
     this.adeudoFrom = this.fb.group({
       idCliente:[0,Validators.required],
       fechaVencimiento: [new Date(new Date().getFullYear(), new Date().getMonth(), 6), Validators.required],
@@ -37,7 +38,7 @@ export class ModalAgregarAdeudosComponent implements OnInit{
     this.getClientes();
   }
   getClientes() {
-    this.clientesService.getAllClientes(`https://localhost:7125/api/cliente`).subscribe(data => {
+    this.clientesService.getAllClientes(`${this.urlapi}api/cliente`).subscribe(data => {
       console.log(data);
       this.clientes = data;
     });
@@ -55,7 +56,7 @@ export class ModalAgregarAdeudosComponent implements OnInit{
             ClienteNombre: ClienteNombre // Agregar el nombre del cliente al objeto de datos del adeudo
           };
           console.log(this.adeudoFrom.value);
-          this.adeudoServices.crearAdeudo('https://localhost:7125/api/registroadeudo/crearadeudo', adeudoData);
+          this.adeudoServices.crearAdeudo(`${this.urlapi}api/registroadeudo/crearadeudo`, adeudoData);
         } else {
           console.error('No se pudo encontrar el nombre del cliente seleccionado');
         }
@@ -66,5 +67,11 @@ export class ModalAgregarAdeudosComponent implements OnInit{
       console.error('this.adeudoFrom es nulo o indefinido');
     }
   }
+  
+  cerrarDialogo(): void {
+    this.dialogRef.close();
+  }
+
+
   
 }

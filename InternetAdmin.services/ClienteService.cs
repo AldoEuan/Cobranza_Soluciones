@@ -79,12 +79,9 @@ namespace InternetAdmin.services
             using (var newcontext = new CobranzaSolucionesContext()) 
             {
                 newcontext.Clientes.Update(cliente);
-                var planAsociado = newcontext.Plans.FirstOrDefault(p => p.Id == cliente.IdPlan);
-                if (planAsociado != null)
-                {
-                   planAsociado.Clientes.Add(cliente);
+               
                     newcontext.SaveChanges();
-                }
+       
             }
         }
         public void EliminarCliente(int id)

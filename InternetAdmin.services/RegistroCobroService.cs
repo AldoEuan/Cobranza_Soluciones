@@ -12,8 +12,10 @@ namespace InternetAdmin.services
         {
             _dbContext = Cobranzacontext;
         }
-        public List<RegistroCobro> ObtenerTodosCobros()
+        public List<RegistroCobro> ObtenerTodosCobros(int pagina)
         {
+            int tamanoPagina = 10;
+            
             return _dbContext.RegistroCobros
                    .Include(t => t.ClienteNavigation)
                        .Select(t => new RegistroCobro
@@ -22,14 +24,18 @@ namespace InternetAdmin.services
                            Cliente = t.Cliente,
                            IdAdeudo = t.IdAdeudo,
                            DescripcionPago = t.DescripcionPago,
-                           NombreCliente = t.ClienteNavigation.Nombre, // el nombre del cliente
+                           NombreCliente = t.ClienteNavigation.Nombre, 
                            Localidad = t.Localidad,
                            ImporteAdeudo = t.ImporteAdeudo,
                            FechaPago = t.FechaPago,
                            Total = t.Total,
                            Observaciones = t.Observaciones
                        })
+                       .OrderByDescending(t => t.Id)
+                .Skip((pagina - 1) * tamanoPagina)  
+                .Take(tamanoPagina)
                 .ToList();
+              
 
         }
 

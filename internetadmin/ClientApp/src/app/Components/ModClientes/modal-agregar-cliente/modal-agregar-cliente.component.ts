@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ClienteModel } from 'src/app/Models/Cliente-interface';
 import {  planModel } from 'src/app/Models/Plan-interface';
 import { ClientesService } from 'src/app/Services/clientes.service';
@@ -26,10 +27,11 @@ export class ModalAgregarClienteComponent implements OnInit {
     estado: false,
     idPlan: '',
   }
+  urlapi='https://interadmin.azurewebsites.net/';
   planes: planModel[] = [];
   localidades: string[] = ['Calkini', 'Nunkini', 'Poocboc','Santa Cruz', 'Hecelchakan','Dzitbalche','Tepakan']; // Puedes cargar estas opciones desde tu servicio si es necesario
   clienteForm: FormGroup;
-  constructor(private fb: FormBuilder ,private planService:PlanesService, private clienteService:ClientesService){
+  constructor(private fb: FormBuilder ,private planService:PlanesService, private clienteService:ClientesService, public dialogRef:MatDialogRef<ModalAgregarClienteComponent>){
 
     this.clienteForm = this.fb.group({
       nombre: ['',Validators.required],
@@ -51,12 +53,15 @@ export class ModalAgregarClienteComponent implements OnInit {
   }
   registrarCliente() {
     if(this.clienteForm.valid){
-      this.clienteService.crearCliente(`https://localhost:7125/api/cliente`,this.clienteForm.value);
+      this.clienteService.crearCliente(`${this.urlapi}api/cliente`,this.clienteForm.value);
     }
   }
   getPlanes() {
-    this.planService.getAllPlanes(`https://localhost:7125/api/plan`).subscribe(data => {
+    this.planService.getAllPlanes(`${this.urlapi}api/plan`).subscribe(data => {
       this.planes = data;
     });
+  }
+  cerrarDialogo(): void {
+    this.dialogRef.close();
   }
 }

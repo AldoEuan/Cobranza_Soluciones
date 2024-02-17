@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ClienteModel } from 'src/app/Models/Cliente-interface';
 import { planModel } from 'src/app/Models/Plan-interface';
 import { ClientesService } from 'src/app/Services/clientes.service';
@@ -27,10 +27,11 @@ export class ModalEditarClienteComponent implements OnInit{
     estado: false,
     idPlan: '',
   }
+  urlapi='https://interadmin.azurewebsites.net/';
   planes: planModel[] = [];
   localidades: string[] = ['Calkini', 'Nunkini', 'Poocboc','Santa Cruz', 'Hecelchakan','Dzitbalche','Tepakan'];
   clienteForm: FormGroup;
-  constructor(private fb: FormBuilder ,private planService:PlanesService, private clienteService:ClientesService,@Inject(MAT_DIALOG_DATA) public data:ClienteModel){
+  constructor(private fb: FormBuilder ,private planService:PlanesService, private clienteService:ClientesService,@Inject(MAT_DIALOG_DATA) public data:ClienteModel, public dialogRef:MatDialogRef<ModalEditarClienteComponent>){
     this.cliente.id = this.data.id
     this.clienteForm = this.fb.group({
       nombre: ['',Validators.required],
@@ -54,18 +55,21 @@ export class ModalEditarClienteComponent implements OnInit{
   }
  public editarCliente() {
     if(this.clienteForm.valid){
-      this.clienteService.EditarCliente(`https://localhost:7125/api/cliente/${this.cliente.id}`,this.clienteForm.value);
+      this.clienteService.EditarCliente(`${this.urlapi}api/cliente/${this.cliente.id}`,this.clienteForm.value);
     }
   }
   public getCliente(){
-    this.clienteService.getCliente(`https://localhost:7125/api/cliente/${this.cliente.id}`).subscribe( Response =>{
+    this.clienteService.getCliente(`${this.urlapi}api/cliente/${this.cliente.id}`).subscribe( Response =>{
  
       this.clienteForm.patchValue(Response);
     });
   }
   getPlanes() {
-    this.planService.getAllPlanes(`https://localhost:7125/api/plan`).subscribe(data => {
+    this.planService.getAllPlanes(`${this.urlapi}api/plan`).subscribe(data => {
       this.planes = data;
     });
+  }
+  cerrarDialogo(): void {
+    this.dialogRef.close();
   }
 }

@@ -1,40 +1,51 @@
-<div class="content-persona">
-  <h2>Registrar Adeudo de Cliente</h2>
-</div>
-<form [formGroup]="adeudoFrom" (ngSubmit)="registrarAdeudo()">
-  
-  <div class="contenedorform">
-    <div class="columna">
-      <label>
-        <p>Cliente:</p>
-      </label>
-      <mat-select formControlName="idCliente" placeholder="Cliente">
-        <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</mat-option>
-      </mat-select>
-      <br><br>
-      <mat-form-field>
-        <mat-label>Fecha de Vencimiento</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="fechaVencimiento">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-hint>MM/DD/YYYY</mat-hint>
-      </mat-form-field>
- 
-      <br><br>
-      <mat-form-field>
-        <mat-label>Descripción</mat-label>
-        <input matInput [matDatepicker]="pickerDesc" formControlName="descripcion">
-        <mat-datepicker-toggle matSuffix [for]="pickerDesc"></mat-datepicker-toggle>
-        <mat-datepicker #pickerDesc ></mat-datepicker>
-        <mat-hint>MM/DD/YYYY</mat-hint>
-      </mat-form-field>
-      <br><br>
-      <label>
-        <p>Importe:</p>
-      </label>
-      <input matInput formControlName="importe" placeholder="Importe" class="mi-input">
-      <br>
-    </div>
+<div class="content">
+
+  <div class="content-persona">
+    <h2>Registrar Adeudo de Cliente</h2>
   </div>
-  <button mat-raised-button color="primary" type="submit">Registrar</button>
-</form>
+  <form [formGroup]="adeudoFrom" (ngSubmit)="registrarAdeudo()">
+
+    <div class="contenedorform">
+      <div class="columna">
+
+
+        <label>
+          <p>Cliente:</p>
+        </label>
+        <mat-select formControlName="idCliente" placeholder="Cliente">
+          <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</mat-option>
+        </mat-select>
+
+
+        <br><br>
+        <mat-form-field>
+          <mat-label>Fecha de Vencimiento es el 6 del mes por cobrar</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fechaVencimiento">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+        </mat-form-field>
+
+        <br><br>
+        <mat-form-field>
+          <mat-label>Descripción del mes que pagara el cliente</mat-label>
+          <input matInput [matDatepicker]="pickerDesc" formControlName="descripcion">
+          <mat-datepicker-toggle matSuffix [for]="pickerDesc"></mat-datepicker-toggle>
+          <mat-datepicker #pickerDesc></mat-datepicker>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+        </mat-form-field>
+        <br><br>
+        <label>
+          <p>Importe:</p>
+        </label>
+        <input matInput formControlName="importe" placeholder="Importe" class="mi-input">
+        <br>
+      </div>
+    </div>
+    <div class="content-btn">
+      <button mat-raised-button class="btn" color="primary" type="submit">Registrar</button>
+      <button mat-raised-button color="warn" (click)="cerrarDialogo()">Cancelar</button>
+
+    </div>
+  </form>
+</div>

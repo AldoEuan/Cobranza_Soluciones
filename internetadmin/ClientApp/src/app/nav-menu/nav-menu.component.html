@@ -1,39 +1,45 @@
 <header>
-  <mat-toolbar  >
+  <mat-toolbar>
     <button mat-icon-button class="btn-menu" (click)="toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <a mat-button class="btn-inicio" routerLink="/">
-      <mat-icon>home</mat-icon> InterAdmin
-    </a>
+
+    <div class="toolbar">
+      <a mat-button class="btn-inicio" routerLink="/InterAdmin">
+        <mat-icon>home</mat-icon> InterAdmin
+      </a>
+      <button mat-button class="btn-logout" (click)="logout()">Cerrar Sesión</button>
+
+    </div>
+
   </mat-toolbar>
-  
+
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav class="sidenav" fixedInViewport="true" [attr.role]="(isExpanded ? 'dialog' : 'navigation')"
       [mode]="(isExpanded ? 'over' : 'side')" [opened]="isExpanded">
       <mat-nav-list>
-        <a class="items"  routerLink="/tickets" [routerLinkActive]="['link-active']">
+        <a class="items" routerLink="/InterAdmin/tickets" [routerLinkActive]="['link-active']">
           <mat-icon>receipt</mat-icon>Tickets
         </a>
-        <a class="items"   routerLink="/cobros" [routerLinkActive]="['link-active']">
+        <a class="items" routerLink="/InterAdmin/cobros" [routerLinkActive]="['link-active']">
           <mat-icon>monetization_on</mat-icon>Registro de Cobros
         </a>
-        <a class="items"   routerLink="/adeudos" [routerLinkActive]="['link-active']">
+        <a class="items" routerLink="/InterAdmin/adeudos" [routerLinkActive]="['link-active']">
           <mat-icon>description</mat-icon>Cuentas por Cobrar
         </a>
-        <a class="items"   routerLink="/clientes" [routerLinkActive]="['link-active']">
+        <a class="items" routerLink="/InterAdmin/clientes" [routerLinkActive]="['link-active']">
           <mat-icon>supervisor_account</mat-icon>Clientes
         </a>
-        <a class="items"   routerLink="/planes" [routerLinkActive]="['link-active']">
+        <a class="items" routerLink="/InterAdmin/planes" [routerLinkActive]="['link-active']">
           <mat-icon>dns</mat-icon>Planes
         </a>
       </mat-nav-list>
     </mat-sidenav>
-  
-    <mat-sidenav-content>
+
+    <mat-sidenav-content class="contenderoHijo">
       <!-- Contenido principal de la página -->
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
-  
+
 </header>

@@ -1,0 +1,16 @@
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\bin\Release\net6.0\spa.proxy.json
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\bin\Release\net6.0\InternetAdmin.model.deps.json
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\bin\Release\net6.0\InternetAdmin.model.runtimeconfig.json
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\bin\Release\net6.0\InternetAdmin.model.dll
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\bin\Release\net6.0\InternetAdmin.model.pdb
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\InternetAdmin.model.csproj.AssemblyReference.cache
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\spa.proxy.json
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\InternetAdmin.model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\InternetAdmin.model.AssemblyInfoInputs.cache
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\InternetAdmin.model.AssemblyInfo.cs
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\InternetAdmin.model.csproj.CoreCompileInputs.cache
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\InternetAdmin.model.dll
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\refint\InternetAdmin.model.dll
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\InternetAdmin.model.pdb
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\InternetAdmin.model.genruntimeconfig.cache
+C:\Users\jess\source\repos\Cobranza_Soluciones\InternetAdmin.model\obj\Release\net6.0\ref\InternetAdmin.model.dll

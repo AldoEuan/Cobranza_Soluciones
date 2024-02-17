@@ -10,7 +10,7 @@
       <div class="content-adeudo">
         <div class="content-persona">
 
-          <h3>Informacion del Adeudo del Cliente</h3>
+          <h3>Información de Cuenta del Cliente</h3>
         </div>
         <div class="content-info">
 
@@ -36,20 +36,28 @@
           <label>
             <p>Mes por Pagar:</p>
           </label>
-          <input matInput formControlName="descripcionPago" placeholder="Precio" class="mi-input-adeudo" readonly>
+          <input matInput formControlName="descripcionPago" placeholder="Precio" class="mi-input-adeudo" readonly
+            [(ngModel)]="fechaInputValue">
+          <br>
+          <span>{{ formatearFecha(fechaInputValue) }}</span>
           <br>
 
           <label>
             <p>Importe:</p>
           </label>
-          <input matInput formControlName="importeAdeudo" placeholder="Precio" class="mi-input-adeudo" readonly>
+
+          <div>
+            <span>$</span><input matInput formControlName="importeAdeudo" placeholder="Precio" class="mi-input-adeudo"
+              readonly>
+
+          </div>
           <br>
         </div>
       </div>
 
       <div class="content-pago">
         <div class="content-persona">
-          <h3>Informacion de Pago del Cliente</h3>
+          <h3>Información de Pago del Cliente</h3>
         </div>
         <div class="content-info">
           <label>
@@ -88,6 +96,6 @@
       </div>
     </div>
   </div>
-  <button mat-raised-button color="primary" type="submit">Cobrar</button>
+  <button mat-raised-button color="primary" (invalid)="cobroForm" type="submit">Cobrar</button>
 
 </form>

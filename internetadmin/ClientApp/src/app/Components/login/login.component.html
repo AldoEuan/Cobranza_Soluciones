@@ -1,27 +1,28 @@
 
 <div class="content">
     <mat-card>
-        <img src="../../../assets/logoimaya.jpg" class="logo" alt="logoimaya">
+        <img src="../../../assets/logoimaya.webp" class="logo" alt="logoimaya">
         <mat-card-header>
         
-            <mat-card-title class="text">Iniciar Sesión</mat-card-title> 
+            <mat-card-title class="text-titulo">Iniciar Sesión</mat-card-title> 
         </mat-card-header>
             
         <mat-card-content>
-            <h3 class="text">Servicios y Soluciones en Informatica del Sureste</h3>
-            <form action="">
-                <mat-form-field>
+            <h3 class="text-subtitulo">"Servicios y Soluciones en Informática del Sureste"</h3>
+            <form class="form" [formGroup]="form" (submit)="loggear()">
+                <mat-form-field class="custom-form-field" style="color: #FF0000;">
                     <mat-label>Usuario:</mat-label>
-                    <input matInput>
+                    <input matInput  formControlName="correo">
                 </mat-form-field>
                 <br>
                 <mat-form-field>
-                    <mat-label>contraseña:</mat-label>
-                    <input matInput>
+                    <mat-label>Contraseña:</mat-label>
+                    <input matInput formControlName="clave" type="password">
     
                 </mat-form-field>
-                <button class="btn-login">Ingresar</button>
+                <button mat-raised-button  class="btn-login"  [disabled]="form.invalid" >Ingresar</button>
             </form>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
         </mat-card-content>
     </mat-card>
 </div>

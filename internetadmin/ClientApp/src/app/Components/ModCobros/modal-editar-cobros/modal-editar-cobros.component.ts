@@ -24,8 +24,10 @@ export class ModalEditarCobrosComponent implements OnInit{
     observaciones:'',
     localidad:'',
   }
+  urlapi='https://interadmin.azurewebsites.net/';
   cobroForm: FormGroup;
   localidades: string[] = ['Calkini', 'Nunkini', 'Poocboc','Santa Cruz', 'Hecelchakan','Dzitbalche','Tepakan'];
+  fechaInputValue: string = ''; 
   constructor(private fb: FormBuilder ,private cobroService:CobrosService,@Inject(MAT_DIALOG_DATA) public data:CobrosModel ,  ){
     this.cobro.id = data.id;
     this.cobroForm = this.fb.group({
@@ -43,8 +45,15 @@ export class ModalEditarCobrosComponent implements OnInit{
   ngOnInit(): void {
     this.getCobro();
   }
+  
+  formatearFecha(fecha: string): string {
+    // Aquí puedes utilizar cualquier método o librería de formateo de fecha que prefieras
+    // Por ejemplo, si tu fecha viene en formato ISO 8601, puedes usar la clase Date para formatearla
+    return new Date(fecha).toLocaleDateString('es-ES', { year: 'numeric', month: 'long',  });
+  }
+
   public getCobro(){
-    this.cobroService.getCobro(`https://localhost:7125/api/registrocobro/${this.cobro.id}`).subscribe(Response=>{
+    this.cobroService.getCobro(`${this.urlapi}api/registrocobro/${this.cobro.id}`).subscribe(Response=>{
       
       if (Response.descripcionPago) {
         const fecha = new Date(Response.descripcionPago);
@@ -61,7 +70,7 @@ export class ModalEditarCobrosComponent implements OnInit{
       // const cobroFormValue = this.cobroForm.value;
       // delete cobroFormValue.nombreCliente; // Elimina el campo nombreCliente del objeto
       console.log(this.cobroForm.value);
-      this.cobroService.EditarCobro(`https://localhost:7125/api/registrocobro/${this.cobro.id}`, this.cobroForm.value);
+      this.cobroService.EditarCobro(`${this.urlapi}api/registrocobro/${this.cobro.id}`, this.cobroForm.value);
 
     }
   }

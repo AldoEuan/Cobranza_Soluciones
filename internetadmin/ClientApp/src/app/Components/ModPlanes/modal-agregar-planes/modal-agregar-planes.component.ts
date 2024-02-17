@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {  MatDialogRef } from '@angular/material/dialog';
 import { planModel } from 'src/app/Models/Plan-interface';
 import { PlanesService } from 'src/app/Services/planes.service';
 
@@ -16,9 +17,9 @@ export class ModalAgregarPlanesComponent implements OnInit{
     costoRenta:0,
     
   }
-
+  urlapi='https://interadmin.azurewebsites.net/';
   planForm:FormGroup;
-  constructor(private fb: FormBuilder ,private planService:PlanesService,){
+  constructor(private fb: FormBuilder ,private planService:PlanesService,public dialogRef:MatDialogRef<ModalAgregarPlanesComponent>){
     this.planForm = this.fb.group({
       nombre:['',Validators.required],
       costoRenta:[0,[Validators.required]],
@@ -30,7 +31,10 @@ export class ModalAgregarPlanesComponent implements OnInit{
   }
   registrarPlan() {
     if(this.planForm.valid){
-      this.planService.crearPlan(`https://localhost:7125/api/plan`,this.planForm.value);
+      this.planService.crearPlan(`${this.urlapi}api/plan`,this.planForm.value);
     }
+  }
+  cerrarDialogo(): void {
+    this.dialogRef.close();
   }
 }

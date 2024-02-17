@@ -12,16 +12,21 @@ import { ModalEliminarPlanesComponent } from '../modal-eliminar-planes/modal-eli
   styleUrls: ['./planes.component.css']
 })
 export class PlanesComponent implements OnInit {
+  isLoading: boolean = false; 
   planes:planModel[]=[];
+  urlapi='https://interadmin.azurewebsites.net/';
   displayedColumns: string[] = ['id', 'nombre', 'renta', 'editar' ];
   constructor(public dialog:MatDialog, private planService:PlanesService){}
   ngOnInit(): void {
     this.GetAllPlanes();
+    this.isLoading = false;
   }
   public GetAllPlanes(){
-    this.planService.getAllPlanes(`https://localhost:7125/api/plan`).subscribe(Response =>{
+    this.isLoading = true;
+    this.planService.getAllPlanes(`${this.urlapi}api/plan`).subscribe(Response =>{
       console.log(Response);
        this.planes = Response;
+       this.isLoading = false;
     })
   }
   public OpenDialogagregarPlan(){

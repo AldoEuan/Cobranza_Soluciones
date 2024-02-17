@@ -1,5 +1,6 @@
-<h1>Modulo de Planes de Internet</h1>
+<h1>Módulo de Planes de Internet</h1>
 <div class="content">
+    <div class="overlay" *ngIf="isLoading"><mat-spinner></mat-spinner></div>
 <button mat-raised-button   class="Agregar-cliente" (click)="OpenDialogagregarPlan()">Agregar Nuevo Plan<mat-icon>person</mat-icon></button>
 
 <table mat-table [dataSource]="planes" class="mat-elevation-z8">
@@ -26,7 +27,7 @@
         <td mat-cell *matCellDef="let element"> <button mat-mini-fab class="btn-editar" (click)="OpenDialogEditar(element.id)"> <mat-icon>edit</mat-icon> </button></td>
     </ng-container>
 
-    <!-- Continúa con las demás columnas según el modelo -->
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row class="mat-row" *matRowDef="let row; columns: displayedColumns;"></tr>

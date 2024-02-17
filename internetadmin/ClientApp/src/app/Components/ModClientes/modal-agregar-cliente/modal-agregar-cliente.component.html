@@ -15,7 +15,7 @@
 
       <br>
       <label>
-        <p>Telefono:</p>
+        <p>Teléfono:</p>
       </label>
       <input matInput formControlName="telefono" placeholder="Teléfono" class="mi-input">
       <br>
@@ -69,7 +69,7 @@
       <label>
         <p>Plan:</p>
       </label>
-      <mat-select formControlName="idPlan" placeholder="ID de Plan">
+      <mat-select formControlName="idPlan" placeholder="Plan de Cliente">
         <mat-option *ngFor="let plan of planes" [value]="plan.id">{{ plan.nombre }}</mat-option>
       </mat-select>
       <br>
@@ -79,6 +79,9 @@
       <br>
       </div>
     </div>
-  <button mat-raised-button color="primary" type="submit">Registrar</button>
+    <div class="content-btn">
+  <button mat-raised-button class="btn" color="primary" type="submit">Registrar</button>
+  <button mat-raised-button   color="warn" (click)="cerrarDialogo()">Cancelar</button>
 
+</div>
 </form>

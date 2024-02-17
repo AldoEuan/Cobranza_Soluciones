@@ -2,18 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 
 import { LOCALE_ID } from '@angular/core';
 
- 
+
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialsModule } from './Shared/angular-materials.module';
 import { ClientesComponent } from './Components/ModClientes/clientes/clientes.component';
@@ -36,6 +35,8 @@ import { AdeudosClienteComponent } from './Components/ModClientes/adeudos-client
 import { CommonModule } from '@angular/common';
 import { MAT_DATE_FORMATS, MatDateFormats } from '@angular/material/core';
 import { LoginComponent } from './Components/login/login.component';
+import { CookieService } from 'ngx-cookie-service';
+import { VigilanteGuard } from './vigilante.guard';
 
 const MY_FORMATS: MatDateFormats = {
   parse: {
@@ -53,8 +54,7 @@ const MY_FORMATS: MatDateFormats = {
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
+
     ClientesComponent,
     ModalInfoClienteComponent,
     ModalAgregarClienteComponent,
@@ -81,27 +81,38 @@ const MY_FORMATS: MatDateFormats = {
     AngularMaterialsModule,
     ReactiveFormsModule,
 
-
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
-      { path: 'counter', component: CounterComponent },
-      { path: 'clientes', component: ClientesComponent },
-      { path: 'adeudos', component: AdeudosComponent },
-      { path: 'planes', component: PlanesComponent },
-      { path: 'cobros', component: CobrosComponent },
-      { path: 'tickets', component: TicketsComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: LoginComponent, pathMatch: 'full', },
+
+      {
+        path: 'InterAdmin',
+        component: NavMenuComponent,
+
+        children: [
+          { path: '', component: HomeComponent, canActivate: [VigilanteGuard] },
+          { path: 'clientes', component: ClientesComponent, canActivate: [VigilanteGuard] },
+          { path: 'adeudos', component: AdeudosComponent, canActivate: [VigilanteGuard] },
+          { path: 'planes', component: PlanesComponent, canActivate: [VigilanteGuard] },
+          { path: 'cobros', component: CobrosComponent, canActivate: [VigilanteGuard] },
+          { path: 'tickets', component: TicketsComponent, canActivate: [VigilanteGuard] },
+
+        ],
+
+
+      },
+
     ]),
     BrowserAnimationsModule
   ],
   providers: [
+    CookieService,
     { provide: LOCALE_ID, useValue: 'es' },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor() {
     // Registra el local de español
     registerLocaleData(localeEs, 'es');

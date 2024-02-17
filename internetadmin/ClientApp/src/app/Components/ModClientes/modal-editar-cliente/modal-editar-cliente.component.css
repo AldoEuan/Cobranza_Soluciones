@@ -5,7 +5,12 @@ form {
   justify-content: center;
   padding: 15px;
 }
-
+.content-btn{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
 .contenedorform {
 
   display: flex;
@@ -69,7 +74,6 @@ h1 {
   color: white;
 }
 
-button {
-  margin-top: 10px;
+.btn {
   background-color: #0d6efd !important;
 }

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "Server=DESKTOP-LB6Q5MO::QUALFIX;Database=CobranzaSoluciones;Trusted_Connection=True;",
+      "dynamicId": null
+    }
+  }
+}
