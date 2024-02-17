@@ -26,7 +26,7 @@ export class ModalAgregarAdeudosComponent implements OnInit{
     urlapi='https://interadmin.azurewebsites.net/';
   adeudoFrom:FormGroup;
   clientes: ClienteModel[] = [];
-  constructor(private adeudoServices:AdeudosService,private clientesService:ClientesService,private fb: FormBuilder,public dialogRef:MatDialogRef<ModalAgregarAdeudosComponent>){
+  constructor(private adeudoServices:AdeudosService,private clientesService:ClientesService,private planService:PlanesService,private fb: FormBuilder,public dialogRef:MatDialogRef<ModalAgregarAdeudosComponent>){
     this.adeudoFrom = this.fb.group({
       idCliente:[0,Validators.required],
       fechaVencimiento: [new Date(new Date().getFullYear(), new Date().getMonth(), 6), Validators.required],
@@ -36,6 +36,9 @@ export class ModalAgregarAdeudosComponent implements OnInit{
   }
   ngOnInit(): void {
     this.getClientes();
+    this.adeudoFrom.get('idCliente')?.valueChanges.subscribe(() => {
+      this.GetImportePlan(); // Llamar a la función GetImportePlan() cuando cambia el idCliente
+    });
   }
   getClientes() {
     this.clientesService.getAllClientes(`${this.urlapi}api/cliente`).subscribe(data => {
@@ -68,10 +71,21 @@ export class ModalAgregarAdeudosComponent implements OnInit{
     }
   }
   
+  public GetImportePlan() {
+    const idCliente = this.adeudoFrom.get('idCliente')?.value;
+    if (idCliente) {
+      this.clientesService.getCliente(`${this.urlapi}api/cliente/${idCliente}`).subscribe(res => {
+        this.planService.getPlan(`${this.urlapi}api/plan/${res.idPlan}`).subscribe(response => {
+          this.adeudoFrom.patchValue({
+            importe: response.costoRenta
+          });
+        });
+      });
+    }
+  }
+  
+
   cerrarDialogo(): void {
     this.dialogRef.close();
   }
-
-
-  
 }

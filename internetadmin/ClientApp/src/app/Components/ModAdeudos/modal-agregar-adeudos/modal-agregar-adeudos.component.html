@@ -20,17 +20,17 @@
         <br><br>
         <mat-form-field>
           <mat-label>Fecha de Vencimiento es el 6 del mes por cobrar</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="fechaVencimiento">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <input matInput [matDatepicker]="picker" formControlName="fechaVencimiento" [matTooltip]="'¡IMPORTANTE! La Fecha de Vencimiento es el día 6 del mes para el cobro al cliente.'" matTooltipPosition="above">
+          <mat-datepicker-toggle matSuffix [for]="picker"[matTooltip]="'¡IMPORTANTE! La Fecha de Vencimiento es el día 6 del mes para el cobro al cliente.'" matTooltipPosition="above"></mat-datepicker-toggle>
+          <mat-datepicker #picker ></mat-datepicker>
           <mat-hint>MM/DD/YYYY</mat-hint>
         </mat-form-field>
 
         <br><br>
         <mat-form-field>
           <mat-label>Descripción del mes que pagara el cliente</mat-label>
-          <input matInput [matDatepicker]="pickerDesc" formControlName="descripcion">
-          <mat-datepicker-toggle matSuffix [for]="pickerDesc"></mat-datepicker-toggle>
+          <input matInput [matDatepicker]="pickerDesc" formControlName="descripcion" [matTooltip]="'¡IMPORTANTE! Ingrese el mes para el pago del cliente. Puede seleccionar cualquier día dentro del mes.'" matTooltipPosition="above">
+          <mat-datepicker-toggle matSuffix [for]="pickerDesc" [matTooltip]="'¡IMPORTANTE! Ingrese el mes para el pago del cliente. Puede seleccionar cualquier día dentro del mes.'" matTooltipPosition="above"></mat-datepicker-toggle>
           <mat-datepicker #pickerDesc></mat-datepicker>
           <mat-hint>MM/DD/YYYY</mat-hint>
         </mat-form-field>

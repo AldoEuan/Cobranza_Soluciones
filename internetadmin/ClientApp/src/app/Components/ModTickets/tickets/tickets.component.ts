@@ -12,7 +12,7 @@ import { ModalInfoTicketsComponent } from '../modal-info-tickets/modal-info-tick
 export class TicketsComponent implements OnInit {
   isLoading: boolean = false; 
   ticket: TicketModel[] =[ ];
-  displayedColumns: string[] = ['id', 'fecha', 'idAdeudo', 'idCobros', 'cliente', 'localidad', 'fechaVencimiento', 'descripcion', 'total', 'ver'];
+  displayedColumns: string[] = ['id',  'idAdeudo', 'idCobros', 'cliente', 'localidad', 'fechaVencimiento', 'descripcion', 'total', 'ver'];
   pagina=1;
   urlapi='https://interadmin.azurewebsites.net/';
   constructor(private ticketService:TicketsService, public dialog:MatDialog){}

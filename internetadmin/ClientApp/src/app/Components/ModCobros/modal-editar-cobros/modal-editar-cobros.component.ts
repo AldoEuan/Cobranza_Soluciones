@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CobrosService } from 'src/app/Services/cobros.service';
 import { CobrosModel } from 'src/app/Models/Cobros-interface';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
  
  
 @Component({
@@ -28,7 +28,7 @@ export class ModalEditarCobrosComponent implements OnInit{
   cobroForm: FormGroup;
   localidades: string[] = ['Calkini', 'Nunkini', 'Poocboc','Santa Cruz', 'Hecelchakan','Dzitbalche','Tepakan'];
   fechaInputValue: string = ''; 
-  constructor(private fb: FormBuilder ,private cobroService:CobrosService,@Inject(MAT_DIALOG_DATA) public data:CobrosModel ,  ){
+  constructor(private fb: FormBuilder ,private cobroService:CobrosService,@Inject(MAT_DIALOG_DATA) public data:CobrosModel ,public dialogRef:MatDialogRef<ModalEditarCobrosComponent>  ){
     this.cobro.id = data.id;
     this.cobroForm = this.fb.group({
       cliente:[0],
@@ -73,5 +73,9 @@ export class ModalEditarCobrosComponent implements OnInit{
       this.cobroService.EditarCobro(`${this.urlapi}api/registrocobro/${this.cobro.id}`, this.cobroForm.value);
 
     }
+  }
+
+  cerrarDialogo(): void {
+    this.dialogRef.close();
   }
 }

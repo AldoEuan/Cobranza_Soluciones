@@ -1,4 +1,8 @@
-<div class="content-persona">
+<div class="content">
+  <div class="content-btn">
+    <button mat-raised-button color="warn" (click)="cerrarDialogo()">X</button>
+  </div>
+<div class="content-titulo">
   <h2>Registrar Pago</h2>
 </div>
 <form [formGroup]="cobroForm" (ngSubmit)="editarCobro()">
@@ -36,12 +40,11 @@
           <label>
             <p>Mes por Pagar:</p>
           </label>
-          <input matInput formControlName="descripcionPago" placeholder="Precio" class="mi-input-adeudo" readonly
-            [(ngModel)]="fechaInputValue">
-          <br>
           <span>{{ formatearFecha(fechaInputValue) }}</span>
           <br>
-
+          <input matInput formControlName="descripcionPago" placeholder="Precio" class="mi-input-adeudo  fechainput" readonly
+            [(ngModel)]="fechaInputValue">
+          <br>
           <label>
             <p>Importe:</p>
           </label>
@@ -65,8 +68,8 @@
           </label>
           <mat-form-field>
             <mat-label>Fecha de Pago</mat-label>
-            <input matInput [matDatepicker]="pickerDesc" formControlName="fechaPago" readonly>
-            <mat-datepicker-toggle matSuffix [for]="pickerDesc"></mat-datepicker-toggle>
+            <input matInput [matDatepicker]="pickerDesc" formControlName="fechaPago" readonly [matTooltip]="'seleccionar el dia en que el cliente pago su cuenta'" matTooltipPosition="above">
+            <mat-datepicker-toggle matSuffix [for]="pickerDesc" [matTooltip]="'seleccionar el dia en que el cliente pago su cuenta'" matTooltipPosition="above"></mat-datepicker-toggle>
             <mat-datepicker #pickerDesc></mat-datepicker>
             <mat-hint>MM/DD/YYYY</mat-hint>
           </mat-form-field>
@@ -74,7 +77,7 @@
           <label>
             <p>Total a Pagar por el Cliente:</p>
           </label>
-          <input matInput formControlName="total" placeholder="Precio" class="mi-input">
+          <input matInput formControlName="total" placeholder="Precio" class="mi-input"[matTooltip]="'Ingresa el Monto que se le cobra al cliente'" matTooltipPosition="above">
           <br>
 
           <br>
@@ -82,7 +85,7 @@
           <label>
             <p>Localidad:</p>
           </label>
-          <mat-select formControlName="localidad" placeholder="localidad">
+          <mat-select formControlName="localidad" placeholder="localidad" [matTooltip]="'seleccionar el Lugar en que el cliente pago su cuenta'" matTooltipPosition="above">
             <mat-option *ngFor="let localidad of localidades" [value]="localidad">{{ localidad }}</mat-option>
           </mat-select>
           <br>
@@ -90,12 +93,15 @@
             <p>Observaciones:</p>
           </label>
           <textarea matInput formControlName="observaciones" placeholder="Observaciones"
-            class="mi-input-area"></textarea>
+            class="mi-input-area" [matTooltip]="'Ingresa Algun comentario acerca del cobro por ejemplo si tiene descuento o pago puntual'" matTooltipPosition="above"></textarea>
         </div>
 
       </div>
     </div>
   </div>
-  <button mat-raised-button color="primary" (invalid)="cobroForm" type="submit">Cobrar</button>
+  <button mat-raised-button color="primary" class="btn" (invalid)="cobroForm" type="submit">Cobrar</button>
 
 </form>
+
+
+</div>
