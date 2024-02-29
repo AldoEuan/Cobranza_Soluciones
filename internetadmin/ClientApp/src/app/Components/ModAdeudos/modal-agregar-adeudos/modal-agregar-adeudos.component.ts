@@ -23,6 +23,7 @@ export class ModalAgregarAdeudosComponent implements OnInit{
        
       status: true
     }];
+    botonPresionado: boolean = false;
     urlapi='https://interadmin.azurewebsites.net/';
   adeudoFrom:FormGroup;
   clientes: ClienteModel[] = [];
@@ -35,6 +36,7 @@ export class ModalAgregarAdeudosComponent implements OnInit{
     });
   }
   ngOnInit(): void {
+
     this.getClientes();
     this.adeudoFrom.get('idCliente')?.valueChanges.subscribe(() => {
       this.GetImportePlan(); // Llamar a la función GetImportePlan() cuando cambia el idCliente
@@ -48,6 +50,7 @@ export class ModalAgregarAdeudosComponent implements OnInit{
   }
  
   public registrarAdeudo() {
+    this.botonPresionado = true
     if (this.adeudoFrom) {
       const idClienteSeleccionado = this.adeudoFrom.get('idCliente')?.value;
       if (idClienteSeleccionado !== null && idClienteSeleccionado !== undefined) {

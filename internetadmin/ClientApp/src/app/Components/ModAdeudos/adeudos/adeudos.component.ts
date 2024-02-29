@@ -20,8 +20,9 @@ export class AdeudosComponent implements OnInit{
 
   }
   ngOnInit(): void {
+    this.isLoading = true;
      this.getAllAdeudos();
-     this.isLoading = false;
+  
   }
   public getAllAdeudos(){
     this.isLoading = true;

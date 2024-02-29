@@ -12,6 +12,9 @@ export class ClientesService {
   public getAllClientes (url:string){
     return this.http.get<clientesarray>(url);
   }
+  public getAllClientesporNombre (url:string){
+    return this.http.get<clientesarray>(url);
+  }
   public getCliente(url: string) {
     return this.http.get<ClienteModel>(url);
   }

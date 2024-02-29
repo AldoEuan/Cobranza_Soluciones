@@ -31,6 +31,20 @@ namespace InternetAdmin.services
             }
         }
 
+        public List<RegistroAdeudo> FiltrarAdeudosPorDescripcion(string descripcion)
+        {
+            return _dbContext.RegistroAdeudos
+                .Where(ra => ra.Descripcion != null && ra.Descripcion.ToString().Contains(descripcion)) // Filtrar por descripción
+                .ToList();
+        }
+
+
+        /*
+public List<Cliente> FiltrarClientesPorNombre(string nombre)
+{
+    return _dbContext.Clientes.Where(c => c.Nombre.Contains(nombre)).ToList();
+}
+*/
         public void AgregarAdeudo(RegistroAdeudo adeudo)
         {
             _dbContext.RegistroAdeudos.Add(adeudo);

@@ -60,6 +60,24 @@ namespace internetadmin.Controllers
             }
         }
 
+        [HttpGet("nombre/{nombre}")]
+        public IActionResult ObtenerClientePorNombre(string nombre)
+        {
+            try
+            {
+                var clientes = _clienteservice.FiltrarClientesPorNombre(nombre);
+                if (clientes == null)
+                {
+                    return BadRequest();
+                }
+                return Ok(clientes);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         public IActionResult AgregarCliente([FromBody] Cliente cliente)
         {

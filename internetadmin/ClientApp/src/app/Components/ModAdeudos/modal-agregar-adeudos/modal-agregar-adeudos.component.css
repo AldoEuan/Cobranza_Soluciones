@@ -75,3 +75,9 @@ form{
     background-color: #0d6efd;
     color: white;
   }
+
+  .btn-disabled {
+    background-color: #ccc !important; /* Color de fondo gris */
+    color: #666 !important; /* Color de texto gris oscuro */
+      /* Cursor de no permitido */
+  }

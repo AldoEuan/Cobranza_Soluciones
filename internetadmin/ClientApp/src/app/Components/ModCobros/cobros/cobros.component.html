@@ -1,13 +1,26 @@
 <h1>Módulo de Cobros</h1>
 <div class="content">
   
+  <mat-card class="content-buscador">
+
+    <div class="content-" >
+      <form [formGroup]="BuscarClienform" class="content-buscador-dos" (ngSubmit)="ObtenerClientesporNombre()"  >
+              <input class="buscador" formControlName="buscador" type="text" placeholder="Buscar cuenta de cliente..."> 
+          <button mat-mini-fab color="warn" class="btn-buscar"><mat-icon>search</mat-icon></button>
+      </form>
+    </div>
+
+ </mat-card>
+
   <div class="content-btn">
     <button mat-flat-button class="btn-act" (click)="paginaprev()">prev</button>
     <button mat-flat-button class="btn-act" (click)="paginanext()">next</button>
     
   </div>
 <div class="overlay" *ngIf="isLoading"><mat-spinner></mat-spinner></div>
-<mat-progress-spinner *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
+ 
+
+
   <table mat-table [dataSource]="cobros" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> Folio de Cobro </th>

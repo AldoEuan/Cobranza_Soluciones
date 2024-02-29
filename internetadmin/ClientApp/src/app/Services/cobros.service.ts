@@ -12,6 +12,9 @@ export class CobrosService {
   public getAllCobros(url: string) {
     return this.http.get<cobrosArray>(url);
   }
+  public getAllCobrosporNombre (url:string){
+    return this.http.get<cobrosArray>(url);
+  }
   public getCobro(url: string) {
     return this.http.get<CobrosModel>(url);
   }

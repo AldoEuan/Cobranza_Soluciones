@@ -18,11 +18,12 @@ export class PlanesComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nombre', 'renta', 'editar' ];
   constructor(public dialog:MatDialog, private planService:PlanesService){}
   ngOnInit(): void {
+    this.isLoading = true;
     this.GetAllPlanes();
-    this.isLoading = false;
+   
   }
   public GetAllPlanes(){
-    this.isLoading = true;
+    
     this.planService.getAllPlanes(`${this.urlapi}api/plan`).subscribe(Response =>{
       console.log(Response);
        this.planes = Response;

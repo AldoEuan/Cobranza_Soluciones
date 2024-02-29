@@ -29,7 +29,7 @@ export class ModalAgregarClienteComponent implements OnInit {
   }
   urlapi='https://interadmin.azurewebsites.net/';
   planes: planModel[] = [];
-  localidades: string[] = ['Calkini', 'Nunkini', 'Poocboc','Santa Cruz', 'Hecelchakan','Dzitbalche','Tepakan']; // Puedes cargar estas opciones desde tu servicio si es necesario
+  localidades: string[] = ['Calkini', 'Nunkini', 'Poocboc','Santa Cruz', 'Hecelchakan','Dzitbalche','Tepakan','Bacabchen']; // Puedes cargar estas opciones desde tu servicio si es necesario
   clienteForm: FormGroup;
   constructor(private fb: FormBuilder ,private planService:PlanesService, private clienteService:ClientesService, public dialogRef:MatDialogRef<ModalAgregarClienteComponent>){
 

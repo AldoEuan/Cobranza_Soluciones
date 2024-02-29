@@ -14,7 +14,7 @@ namespace InternetAdmin.services
         }
         public List<RegistroCobro> ObtenerTodosCobros(int pagina)
         {
-            int tamanoPagina = 10;
+            int tamanoPagina = 110;
             
             return _dbContext.RegistroCobros
                    .Include(t => t.ClienteNavigation)
@@ -61,6 +61,13 @@ namespace InternetAdmin.services
                 
             
             
+        }
+
+        public List<RegistroCobro> FiltrarCobroporNombreCliente(string nombre)
+        {
+            return _dbContext.RegistroCobros
+                     .Where(r => r.NombreCliente.Contains(nombre) || r.ClienteNavigation.Nombre.Contains(nombre))
+                     .ToList();
         }
 
 

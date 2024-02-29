@@ -17,8 +17,9 @@ export class TicketsComponent implements OnInit {
   urlapi='https://interadmin.azurewebsites.net/';
   constructor(private ticketService:TicketsService, public dialog:MatDialog){}
   ngOnInit(): void {
+    this.isLoading = true;
     this.getAllTickets();
-    this.isLoading = false;
+ 
   }
 
   public opendialogTicket(id:number){

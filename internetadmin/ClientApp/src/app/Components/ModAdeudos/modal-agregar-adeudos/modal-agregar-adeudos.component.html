@@ -43,8 +43,8 @@
       </div>
     </div>
     <div class="content-btn">
-      <button mat-raised-button class="btn" color="primary" type="submit">Registrar</button>
-      <button mat-raised-button color="warn" (click)="cerrarDialogo()">Cancelar</button>
+      <button mat-raised-button class="btn" color="primary" [disabled]="botonPresionado" type="submit" >Registrar</button>
+      <button mat-raised-button color="warn" type="button" (click)="cerrarDialogo()">Cancelar</button>
 
     </div>
   </form>

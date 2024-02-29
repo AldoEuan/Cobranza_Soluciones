@@ -48,6 +48,8 @@ namespace internetadmin.Controllers
             }
         }
 
+     
+
         [HttpPost]
         public IActionResult AgregarPlan([FromBody] Plan plan)
         {

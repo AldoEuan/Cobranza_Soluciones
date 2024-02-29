@@ -19,7 +19,10 @@
   }
 
 th{
+    border: solid 1px #0d6efd;
     font-family: 'Poppins', sans-serif;
+    background-color: #0d6efd !important;
+    color: white;
 }
 td{
     font-family: 'Poppins', sans-serif;
@@ -37,4 +40,45 @@ td{
   display: flex;
   align-items: center;
   justify-content: right;
+}
+.content-aduedo{
+  background-color: #ebf6ff !important;
+
+}
+.mat-row {
+  transition: background-color 0.3s !important;
+  /* Añade una transición suave al cambio de color */
+}
+
+/* Agrega efecto hover a las filas de la tabla */
+.mat-row:hover {
+  background-color: #BBDEFB !important;
+  /* Cambia el color de fondo en hover según tus preferencias */
+}
+
+mat-card{
+  margin: 8px;
+}
+
+.borde{
+  border-right: solid  black;
+}
+.header-table{
+  width: 100%;
+  display: flex;
+  margin-top: 15px ;
+  background-color: #0d6efd;
+  border: solid 2px;
+}
+.titulos{
+  width: 100%;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 1rem;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }

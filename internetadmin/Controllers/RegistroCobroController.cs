@@ -43,6 +43,24 @@ namespace internetadmin.Controllers
             }
         }
 
+        [HttpGet("porcliente/{nombre}")]
+        public IActionResult FiltrarporClientes(string nombre)
+        {
+            try
+            {
+                var clientes = _registroCobroservice.FiltrarCobroporNombreCliente(nombre);
+                if (clientes == null)
+                {
+                    return BadRequest();
+                }
+                return Ok(clientes);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("deudas/{id}")]
         public IActionResult obtenertodosAdeudosporCliente(int id)
         {
